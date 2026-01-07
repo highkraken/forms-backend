@@ -1,0 +1,20 @@
+{
+  _id: ObjectId,
+  label: string,
+  value: string | string[] | date | number,
+  defaultValue?: string | string[] | date | number,
+  dataType: select | text | number | date,
+  variant?: required if datatype = select then dropdown: { multiselect: boolean } | checkbox: boolean | radio: boolean, if text then multiline: boolean,
+  required?: { value: boolean, dependsOn?: attribute._id, dependencyValue?: string | string[] | date | number (whatever value parent attribute accepts, can be set here) },
+  visible?: (same as required),
+  staticOptions?: boolean, // required for select and text datatype
+  options?: { id: string, label: string, (there can be other keys too) }, // if static options is true
+  apiOptions?: { method, endpoint, payload?: { value: attribute.value } }, // if static options is false
+}
+
+{
+  updateProps (or give better name for it): {
+    prop: (any of the property of attribute but mostly options | apiOptions | value | defaultValue (value or defaultValue in case of text and options or apiOptions in case of select))
+    when: IDependency
+  }
+}
