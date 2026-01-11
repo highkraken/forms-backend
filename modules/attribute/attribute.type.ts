@@ -122,6 +122,10 @@ export interface IAttribute {
 
   editable?: boolean;
 
+  helperText?: string;
+
+  placeholder?: string;
+
   /**
    * Required for select & text
    */

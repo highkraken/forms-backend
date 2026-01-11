@@ -140,6 +140,8 @@ const attributeSchema = new Schema<IAttribute>(
     variant: Schema.Types.Mixed,
     visible: Boolean,
     editable: Boolean,
+    helperText: String,
+    placeholder: String,
     staticOptions: Boolean,
     options: [staticOptionSchema],
     apiOptions: apiOptionsSchema,
